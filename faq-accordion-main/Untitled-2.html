@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs Window</title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: hsl(275, 100%, 97%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .top-image {
+            width: 100%;
+            margin-top: 0px;
+        }
+
+        .faq-window {
+            background-color: white;
+            width: 60%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .faq-header {
+            display: flex;
+            align-items: center;
+            color: hsl(292, 42%, 14%);
+            font-size: 45px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .faq-header img {
+            width: 35px;
+            height: 35px;
+            margin-right: 12px;
+        }
+
+        .faq-item {
+            padding: 12px 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 18px;
+            color: hsl(292, 42%, 14%);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 8px;
+            color: hsl(292, 16%, 49%);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .separator {
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.15);
+            margin: 12px 0;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="\faq-accordion-main\assets\images\background-pattern-desktop.svg" 
+         alt="Top Image" class="top-image">
+
+    <div class="faq-window">
+        <div class="faq-header">
+            <img src="\faq-accordion-main\assets\images\icon-star.svg" alt="FAQ Icon">
+            <span>FAQs</span>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(0)">
+                <span>What is Frontend Mentor, and how will it help me?</span>
+                <img src="\faq-accordion-main\assets\images\icon-plus.svg" class="icon" id="icon-0">
+            </div>
+            <div class="faq-answer">Frontend Mentor offers realistic coding challenges to help developers improve their 
+                frontend coding skills with projects in HTML, CSS, and JavaScript. It's suitable for 
+                all levels and ideal for portfolio building.</div>
+        </div>
+        <div class="separator"></div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(1)">
+                <span>Is Frontend Mentor free?</span>
+                <img src="\faq-accordion-main\assets\images\icon-plus.svg" class="icon" id="icon-1">
+            </div>
+            <div class="faq-answer">Yes, Frontend Mentor offers both free and premium coding challenges, with the free 
+                option providing access to a range of projects suitable for all skill levels.</div>
+        </div>
+        <div class="separator"></div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(2)">
+                <span>Can I use Frontend Mentor projects in my portfolio?</span>
+                <img src="\faq-accordion-main\assets\images\icon-plus.svg" class="icon" id="icon-2">
+            </div>
+            <div class="faq-answer">Yes, you can use projects completed on Frontend Mentor in your portfolio. It's an excellent
+                way to showcase your skills to potential employers!</div>
+        </div>
+        <div class="separator"></div>
+
+        <div class="faq-item">
+            <div class="faq-question" onclick="toggleAnswer(3)">
+                <span>How can I get help if I'm stuck on a challenge?</span>
+                <img src="\faq-accordion-main\assets\images\icon-plus.svg" class="icon" id="icon-3">
+            </div>
+            <div class="faq-answer">
+                The best place to get help is inside Frontend Mentor's Discord community. There's a help 
+                channel where you can ask questions and seek support from other community members.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(index) {
+            let answers = document.querySelectorAll(".faq-answer");
+            let icons = document.querySelectorAll(".icon");
+
+            if (answers[index].style.display === "block") {
+                answers[index].style.display = "none";
+                icons[index].src = "/faq-accordion-main/assets/images/icon-plus.svg"; // Change back to plus icon
+            } else {
+                answers[index].style.display = "block";
+                icons[index].src = "/faq-accordion-main/assets/images/icon-minus.svg"; // Change to minus icon
+            }
+        }
+    </script>
+
+</body>
+</html>
